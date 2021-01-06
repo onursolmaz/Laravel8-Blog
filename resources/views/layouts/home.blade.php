@@ -16,14 +16,14 @@
 
 </head>
 <body>
-@include("layouts.header")
-@include("layouts.slider")
+@include("home.header")
+@include("home.slider")
 @section("content")
 @show
 
 
 {{--@include("layouts.content")--}}
-@include("layouts.footer")
+@include("home.footer")
 
 </body>
 </html>

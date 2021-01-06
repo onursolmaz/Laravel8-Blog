@@ -15,7 +15,7 @@ Route::get("/home",[HomeController::class,"index"]);
 
 
 ## ADMİN
-Route::get("/admin",[App\Http\Controllers\admin\HomeController::class,"index"]);
+Route::get("/admin",[App\Http\Controllers\admin\HomeController::class,"index"])->name("adminHome");
 
 
 
