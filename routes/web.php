@@ -15,7 +15,11 @@ Route::get("/home",[HomeController::class,"index"]);
 
 
 ## ADMİN
-Route::get("/admin",[App\Http\Controllers\admin\HomeController::class,"index"])->name("adminHome");
+Route::get("/admin",[App\Http\Controllers\admin\HomeController::class,"index"])->name("adminHome")->middleware("auth");
+Route::get("/admin/login",[HomeController::class,"login"])->name("admin_login");
+Route::post("/admin/logincheck",[HomeController::class,"logincheck"])->name("admin_logincheck");
+//Route::get("/admin/logout",[HomeController::class,"logout"])->name("admin_logout");
+Route::get("/admin/logout",[HomeController::class,"logout"])->name("admin_logout");
 
 
 

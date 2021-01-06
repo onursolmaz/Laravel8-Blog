@@ -225,7 +225,9 @@
                             <span class="profile-ava">
                                 <img alt="" src="{{asset("assets")}}/admin/img/avatar1_small.jpg">
                             </span>
-                    <span class="username">Jenifer Smith</span>
+                    @auth
+                    <span class="username">{{Auth::user()->name}}</span>
+                    @endauth
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">
@@ -242,9 +244,11 @@
                     <li>
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                     </li>
+                    @auth
                     <li>
-                        <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                        <a href="{{route("admin_logout")}}"><i class="icon_key_alt"></i> Log Out</a>
                     </li>
+                    @endauth
                     <li>
                         <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
                     </li>
