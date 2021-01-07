@@ -38,6 +38,19 @@
 <script src="{{asset("assets")}}/admin/js/sparklines.js"></script>
 <script src="{{asset("assets")}}/admin/js/charts.js"></script>
 <script src="{{asset("assets")}}/admin/js/jquery.slimscroll.min.js"></script>
+<script src="{{asset("assets")}}/adminjs/jquery.js"></script>
+<script src="{{asset("assets")}}/adminjs/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="{{asset("assets")}}/adminjs/jquery.scrollTo.min.js"></script>
+<script src="{{asset("assets")}}/adminjs/jquery.nicescroll.js" type="text/javascript"></script>
+<!-- jquery validate js -->
+<script type="text/javascript" src="{{asset("assets")}}/adminjs/jquery.validate.min.js"></script>
+
+<!-- custom form validation script for this page-->
+<script src="{{asset("assets")}}/adminjs/form-validation-script.js"></script>
+<!--custome script for all page-->
+<script src="{{asset("assets")}}/adminjs/scripts.js"></script>
+
 <script>
     //knob
     $(function() {
