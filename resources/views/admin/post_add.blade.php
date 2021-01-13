@@ -1,16 +1,16 @@
 @extends("layouts.admin")
-@section("title","Add Category")
+@section("title","Add post  ")
 
 @section("content")
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-files-o"></i>Add Category</h3>
+                    <h3 class="page-header"><i class="fa fa-files-o"></i>Add Post</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="{{route("admin_home")}}">Home</a></li>
-                        <li><i class="icon_document_alt"></i><a href="{{route("admin_category")}}">Category</a></li>
-                        <li><i class="icon_pencil"></i><a>Add Category</a></li>
+                        <li><i class="icon_document_alt"></i><a href="{{route("admin_post")}}">Post</a></li>
+                        <li><i class="icon_pencil"></i><a>Add Post</a></li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="form-validate form-horizontal" method="post" action="{{route("admin_category_create")}}">
+                                <form class="form-validate form-horizontal" method="post" action="{{route("admin_post_store")}}">
                                     @csrf
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
@@ -31,10 +31,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label class="control-label col-lg-2">Parent Category *</label>
+                                        <label class="control-label col-lg-2">Category</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" id="parent_id" name="parent_id" required>
-                                                <option value="0">Base Category</option>
+                                            <select class="form-control col-lg-2" name="category_id" required>
                                                 @foreach($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->title}}</option>
                                                 @endforeach
@@ -42,21 +41,33 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label class="control-label col-lg-2">Slug *</label>
+                                        <label class="control-label col-lg-2">Content</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="slug" type="text" name="slug" />
+                                            <input class="form-control" type="text" name="content" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="keywords" name="keywords" minlength="5" type="text" required />
+                                            <input class="form-control" name="keywords" minlength="5" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-2">Image</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" name="image" minlength="5" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-2">Slug</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" name="slug" minlength="5" type="text" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Status *</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" id="status" name="status"required>
+                                            <select class="form-control col-lg-2" name="status"required>
                                                 <option>True</option>
                                                 <option>False</option>
                                             </select>

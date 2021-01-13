@@ -13,11 +13,10 @@
                     </ol>
                 </div>
 
-
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <button class="btn btn-primary btn-lg" href="{{route("admin_category_add")}}"><i class="fa-lg icon_plus"></i> Add category</button>
+                    <a class="btn btn-primary btn-lg" href="{{route("admin_category_add")}}"><i class="fa-lg icon_plus"></i> Add category</a>
                     <section class="card">
                         <div class="card-header">
                             <h1 class="display-5 text-center mb-2"><i class="fa fa-xs fa-bars"></i>  Categories</h1>
@@ -39,7 +38,7 @@
                                 <td>{{$category->status}}</td>
                                 <td>
                                     <div class="btn-toolbar">
-                                        <a class="btn btn-success" href="/"><i class="icon_check_alt2"></i></a>
+                                        <a class="btn btn-success" href="{{route("admin_category_edit",["id"=>$category->id])}}"><i class=" icon_pencil"></i></a>
                                         <a class="btn btn-danger" href="{{route("admin_category_delete",["id"=>$category->id])}}" onclick="return confirm('are you sure!')"><i class="icon_close_alt2"></i></a>
                                     </div>
                                 </td>
@@ -54,5 +53,4 @@
             </div>
         </section>
     </section>
-
 @endsection

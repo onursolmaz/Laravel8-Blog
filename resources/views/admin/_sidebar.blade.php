@@ -20,7 +20,7 @@
 {{--                </ul>--}}
             </li>
             <li>
-                <a class="" href="widgets.html">
+                <a class="" href="{{route("admin_post")}}">
                     <i class="icon_genius"></i>
                     <span>Bloglar</span>
                 </a>

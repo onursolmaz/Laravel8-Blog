@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("title","Add Category")
+@section("title","Edit Category")
 
 @section("content")
     <section id="main-content">
@@ -22,41 +22,48 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="form-validate form-horizontal" method="post" action="{{route("admin_category_create")}}">
+                                <form class="form-validate form-horizontal" method="post"
+                                      action="{{route("admin_category_update",["id"=>$data->id])}}">
                                     @csrf
-                                    <div class="form-group ">
-                                        <label class="control-label col-lg-2">Title *</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="title" name="title" minlength="5" type="text" required />
-                                        </div>
-                                    </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Parent Category *</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" id="parent_id" name="parent_id" required>
+                                            <select class="form-control col-lg-2" name="parent_id" required>
                                                 <option value="0">Base Category</option>
                                                 @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                                    <option value="{{$category->id}}"
+                                                            @if($category->id==$data->parent_id) selected="selected" @endif>{{$category->title}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group ">
+                                        <label class="control-label col-lg-2">Title *</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="title" name="title" minlength="5"
+                                                   type="text" value="{{$data->title}}" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group ">
                                         <label class="control-label col-lg-2">Slug *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="slug" type="text" name="slug" />
+                                            <input class="form-control" value="{{$data->slug}}" id="slug" type="text"
+                                                   name="slug"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="keywords" name="keywords" minlength="5" type="text" required />
+                                            <input class="form-control" id="keywords" name="keywords" minlength="5"
+                                                   type="text" value="{{$data->keywords}}" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Status *</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" id="status" name="status"required>
+                                            <select class="form-control col-lg-2" id="status" name="status" required>
+                                                <option selected="selected">{{$data->status}}</option>
                                                 <option>True</option>
                                                 <option>False</option>
                                             </select>
@@ -64,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
-                                            <button class="btn btn-primary" type="submit">Add</button>
+                                            <button class="btn btn-primary" type="submit">Update  </button>
                                             <button class="btn btn-default" type="button">Cancel</button>
                                         </div>
                                     </div>
