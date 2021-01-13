@@ -19,7 +19,7 @@
                     <a class="btn btn-primary btn-lg" href="{{route("admin_post_add")}}"><i class="fa-lg icon_plus"></i> Add new post</a>
                     <section class="card">
                         <div class="card-header">
-                            <h1 class="display-5 text-center mb-2"><i class="fa fa-xs fa-bars"></i>  Blog</h1>
+                            <h1 class="display-5 text-center mb-2">Posts</h1>
                         </div>
                         <table class="table table-striped table-advance table-hover">
                             <tbody>

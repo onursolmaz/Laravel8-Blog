@@ -1,6 +1,9 @@
 @extends("layouts.admin")
-@section("title","Add post  ")
-
+@section("title","Post edit ")
+@section("javascript")
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+@endsection
 @section("content")
     <section id="main-content">
         <section class="wrapper">
@@ -43,7 +46,12 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Content</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" type="text" name="content"value="{{$data->content}}" />
+                                            <textarea id="summernote" name="content">{{$data->content}}</textarea>
+                                            <script>
+                                                $(document).ready(function() {
+                                                    $('#summernote').summernote();
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                     <div class="form-group ">

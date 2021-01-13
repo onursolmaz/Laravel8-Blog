@@ -19,7 +19,7 @@
                     <a class="btn btn-primary btn-lg" href="{{route("admin_category_add")}}"><i class="fa-lg icon_plus"></i> Add category</a>
                     <section class="card">
                         <div class="card-header">
-                            <h1 class="display-5 text-center mb-2"><i class="fa fa-xs fa-bars"></i>  Categories</h1>
+                            <h1 class="display-5 text-center mb-2">Categories</h1>
                         </div>
                         <table class="table table-striped table-advance table-hover">
                             <tbody>

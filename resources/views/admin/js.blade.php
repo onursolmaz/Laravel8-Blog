@@ -1,10 +1,15 @@
-<script src="{{asset("assets")}}/admin/js/jquery.js"></script>
-<script src="{{asset("assets")}}/admin/js/jquery-ui-1.10.4.min.js"></script>
-<script src="{{asset("assets")}}/admin/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="{{asset("assets")}}/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
+
 <!-- bootstrap -->
 <script src="{{asset("assets")}}/admin/js/bootstrap.min.js"></script>
 <!-- nice scroll -->
+
+
+
+
+
+
+
+
 <script src="{{asset("assets")}}/admin/js/jquery.scrollTo.min.js"></script>
 <script src="{{asset("assets")}}/admin/js/jquery.nicescroll.js" type="text/javascript"></script>
 <!-- charts scripts -->
@@ -38,19 +43,7 @@
 <script src="{{asset("assets")}}/admin/js/sparklines.js"></script>
 <script src="{{asset("assets")}}/admin/js/charts.js"></script>
 <script src="{{asset("assets")}}/admin/js/jquery.slimscroll.min.js"></script>
-<script src="{{asset("assets")}}/adminjs/jquery.js"></script>
-<script src="{{asset("assets")}}/adminjs/bootstrap.min.js"></script>
-<!-- nice scroll -->
-<script src="{{asset("assets")}}/adminjs/jquery.scrollTo.min.js"></script>
-<script src="{{asset("assets")}}/adminjs/jquery.nicescroll.js" type="text/javascript"></script>
-<!-- jquery validate js -->
-<script type="text/javascript" src="{{asset("assets")}}/adminjs/jquery.validate.min.js"></script>
-
-<!-- custom form validation script for this page-->
-<script src="{{asset("assets")}}/adminjs/form-validation-script.js"></script>
-<!--custome script for all page-->
-<script src="{{asset("assets")}}/adminjs/scripts.js"></script>
-
+<!-- javascripts -->
 <script>
     //knob
     $(function() {

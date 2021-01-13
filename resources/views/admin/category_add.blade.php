@@ -1,6 +1,7 @@
 @extends("layouts.admin")
 @section("title","Add Category")
 
+
 @section("content")
     <section id="main-content">
         <section class="wrapper">
