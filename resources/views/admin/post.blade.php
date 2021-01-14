@@ -34,13 +34,13 @@
                                 <th>image galery</th>
                                 <th>keywords</th>
                                 <th>Status</th>
-                                <th><i class="icon_cogs"></i> Action</th>
+                                <th colspan="2"><i class="icon_cogs"></i> Action</th>
                             </tr>
                             @foreach($posts as $post)
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->user_id}}</td>
-                                    <td>{{$post->category_id}}</td>
+                                    <td>{{$post->category->title}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->content}}</td>
                                     <td>
@@ -56,15 +56,12 @@
                                             <i class="icon_images fa-2x"></i></a></td>
                                     <td>{{$post->keywords}}</td>
                                     <td>{{$post->status}}</td>
-                                    <td>
-                                        <div class="btn-toolbar d-flex-inline">
-                                            <a class="btn btn-success"
-                                               href="{{route("admin_post_edit",["id"=>$post->id])}}"><i
-                                                    class=" icon_pencil"></i></a>
-                                            <a class="btn btn-danger"
-                                               href="{{route("admin_post_delete",["id"=>$post->id])}}"
-                                               onclick="return confirm('are you sure!')"><i class="icon_close_alt2"></i></a>
-                                        </div>
+                                    <td><a class="btn btn-success"
+                                           href="{{route("admin_post_edit",["id"=>$post->id])}}"><i class=" icon_pencil"></i></a>
+
+                                    </td>
+                                    <td><a class="btn btn-danger"
+                                           href="{{route("admin_post_delete",["id"=>$post->id])}}" onclick="return confirm('are you sure!')"><i class="icon_close_alt2"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

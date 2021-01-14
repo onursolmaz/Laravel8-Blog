@@ -26,19 +26,20 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="form-validate form-horizontal" method="post"
-                                      action="{{route("admin_post_update",["id"=>$data->id])}}" enctype="multipart/form-data">
+                                      action="{{route("admin_post_update",["id"=>$data->id])}}"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" value="{{$data->title}}" name="title"
-                                                   minlength="5" type="text" required/>
+                                                   type="text"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Category</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" name="category_id" required>
+                                            <select class="form-control col-lg-2" name="category_id">
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}"
                                                             @if($category->id==$data->category_id) selected="selected" @endif>{{$category->title}}</option>
@@ -60,16 +61,14 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="keywords" minlength="5" type="text"
-                                                   required value="{{$data->keywords}}"/>
+                                            <input class="form-control" name="keywords" type="text"
+                                                   value="{{$data->keywords}}"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Image</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="image" minlength="5" type="file"
-                                                   value="{{$data->image}}"/>
-
+                                            <input class="form-control" value="image" name="image" type="file"/>
                                             @if($data->image)
                                                 <img src="{{Storage::url($data->image)}}" height="45">
                                             @endif
@@ -78,14 +77,14 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Slug</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="slug" minlength="5" type="text" required
+                                            <input class="form-control" name="slug" type="text"
                                                    value="{{$data->slug}}"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Status *</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" name="status" required>
+                                            <select class="form-control col-lg-2" name="status">
                                                 <option selected="selected">{{$data->status}}</option>
                                                 <option>True</option>
                                                 <option>False</option>
