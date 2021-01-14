@@ -25,12 +25,14 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="form-validate form-horizontal" method="post" action="{{route("admin_post_update",["id"=>$data->id])}}">
+                                <form class="form-validate form-horizontal" method="post"
+                                      action="{{route("admin_post_update",["id"=>$data->id])}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" value="{{$data->title}}" name="title" minlength="5" type="text" required />
+                                            <input class="form-control" value="{{$data->title}}" name="title"
+                                                   minlength="5" type="text" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -38,7 +40,8 @@
                                         <div class="col-lg-10">
                                             <select class="form-control col-lg-2" name="category_id" required>
                                                 @foreach($categories as $category)
-                                                <option value="{{$category->id}}" @if($category->id==$data->category_id) selected="selected" @endif>{{$category->title}}</option>
+                                                    <option value="{{$category->id}}"
+                                                            @if($category->id==$data->category_id) selected="selected" @endif>{{$category->title}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -48,7 +51,7 @@
                                         <div class="col-lg-10">
                                             <textarea id="summernote" name="content">{{$data->content}}</textarea>
                                             <script>
-                                                $(document).ready(function() {
+                                                $(document).ready(function () {
                                                     $('#summernote').summernote();
                                                 });
                                             </script>
@@ -57,25 +60,32 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="keywords" minlength="5" type="text" required value="{{$data->keywords}}"/>
+                                            <input class="form-control" name="keywords" minlength="5" type="text"
+                                                   required value="{{$data->keywords}}"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Image</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="image" minlength="5" type="text" required value="{{$data->image}}"/>
+                                            <input class="form-control" name="image" minlength="5" type="file" required
+                                                   value="{{$data->image}}"/>
+
+                                            @if($data->image)
+                                                <img src="{{Storage::url($data->image)}}" height="45">
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Slug</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="slug" minlength="5" type="text" required value="{{$data->slug}}"/>
+                                            <input class="form-control" name="slug" minlength="5" type="text" required
+                                                   value="{{$data->slug}}"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Status *</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" name="status"required>
+                                            <select class="form-control col-lg-2" name="status" required>
                                                 <option selected="selected">{{$data->status}}</option>
                                                 <option>True</option>
                                                 <option>False</option>

@@ -28,7 +28,7 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="form-validate form-horizontal" method="post"
-                                      action="{{route("admin_post_store")}}">
+                                      action="{{route("admin_post_store")}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
@@ -68,7 +68,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Image</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="image" minlength="5" type="text"
+                                            <input class="form-control" name="image" minlength="5" type="file"
                                                    required/>
                                         </div>
                                     </div>

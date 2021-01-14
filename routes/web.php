@@ -44,6 +44,17 @@ Route::middleware("auth")->prefix("admin")->group(function (){
         Route::get("show",[\App\Http\Controllers\admin\PostController::class,"show"])->name("admin_post_show");
     });
 
+   #Post İmage galery
+    Route::prefix("image")->group(function (){
+        Route::get("/create/{post_id}",[\App\Http\Controllers\admin\ImageController::class,"create"])->name("admin_image_add");
+        Route::post("/store/{post_id}",[\App\Http\Controllers\admin\ImageController::class,"store"])->name("admin_image_store");
+        Route::get("/delete/{id}",[\App\Http\Controllers\admin\ImageController::class,"destroy"])->name("admin_image_delete");
+        Route::get("show",[\App\Http\Controllers\admin\ImageController::class,"show"])->name("admin_image_show");
+    });
+
+
+
+
 });
 
 

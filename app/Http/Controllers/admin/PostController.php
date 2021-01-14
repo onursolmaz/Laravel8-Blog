@@ -8,6 +8,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -36,9 +37,9 @@ class PostController extends Controller
         $data->content = $request->input("content");
         $data->category_id = $request->input("category_id");
         $data->keywords = $request->input("keywords");
-        $data->image = $request->input("image");
         $data->status = $request->input("status");
         $data->slug = $request->input("slug");
+        $data->image=Storage::putFile("images",$request->file("image"));
         $data->save();
 
         return redirect()->route("admin_post");
@@ -67,9 +68,9 @@ class PostController extends Controller
         $post->category_id = $request->input("category_id");
         $post->content = $request->input("content");
         $post->keywords = $request->input("keywords");
-        $post->image = $request->input("image");
         $post->slug = $request->input("slug");
         $post->status = $request->input("status");
+        $post->image=Storage::putFile("images",$request->file("image"));
         $post->save();
         return redirect()->route("admin_post");
     }
