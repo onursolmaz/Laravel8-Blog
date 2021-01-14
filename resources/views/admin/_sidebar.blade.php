@@ -8,44 +8,29 @@
                     <span>Anasayfa</span>
                 </a>
             </li>
-            <li class="sub-menu">
-                <a href="{{route("admin_category")}}" class="">
+            <li>
+                <a href="{{route("admin_category")}}" >
                     <i class="icon_document_alt"></i>
                     <span>Kategoriler</span>
-{{--                    <span class="menu-arrow arrow_carrot-right"></span>--}}
                 </a>
-{{--                <ul class="sub">--}}
-{{--                    <li><a class="" href="form_component.html">Form Elements</a></li>--}}
-{{--                    <li><a class="" href="form_validation.html">Form Validation</a></li>--}}
-{{--                </ul>--}}
             </li>
             <li>
-                <a class="" href="{{route("admin_post")}}">
+                <a href="{{route("admin_post")}}">
                     <i class="icon_genius"></i>
                     <span>Bloglar</span>
                 </a>
             </li>
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_desktop"></i>
-                    <span>UI Fitures</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
+            <li>
+                <a href="{{route("admin_setting")}}">
+                    <i class="icon_cog"></i>
+                    <span>Setting</span>
                 </a>
-                <ul class="sub">
-                    <li><a class="" href="general.html">Elements</a></li>
-                    <li><a class="" href="buttons.html">Buttons</a></li>
-                    <li><a class="" href="grids.html">Grids</a></li>
-                </ul>
             </li>
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
+            <li>
+                <a href="">
                     <i class="icon_table"></i>
-                    <span>Tables</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
+                    <span>Other Links</span>
                 </a>
-                <ul class="sub">
-                    <li><a class="" href="basic_table.html">Basic Table</a></li>
-                </ul>
             </li>
 
         </ul>

@@ -68,8 +68,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Image</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="image" minlength="5" type="file"
-                                                   required/>
+                                            <input class="form-control" name="image" minlength="5" type="file"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

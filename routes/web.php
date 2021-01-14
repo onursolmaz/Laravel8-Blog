@@ -52,7 +52,9 @@ Route::middleware("auth")->prefix("admin")->group(function (){
         Route::get("show",[\App\Http\Controllers\admin\ImageController::class,"show"])->name("admin_image_show");
     });
 
-
+    #Setting
+    Route::get("setting",[\App\Http\Controllers\admin\SettingController::class,"index"])->name("admin_setting");
+    Route::post("setting/update",[\App\Http\Controllers\admin\SettingController::class,"update"])->name("admin_setting_update");
 
 
 });

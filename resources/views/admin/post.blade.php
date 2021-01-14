@@ -22,7 +22,7 @@
                         <div class="card-header">
                             <h1 class="display-5 text-center mb-2">Posts</h1>
                         </div>
-                        <table class="table table-striped table-advance table-hover">
+                        <table class="table table-striped table-advance table-hover container">
                             <tbody>
                             <tr>
                                 <th>id</th>
@@ -57,7 +57,7 @@
                                     <td>{{$post->keywords}}</td>
                                     <td>{{$post->status}}</td>
                                     <td>
-                                        <div class="btn-toolbar">
+                                        <div class="btn-toolbar d-flex-inline">
                                             <a class="btn btn-success"
                                                href="{{route("admin_post_edit",["id"=>$post->id])}}"><i
                                                     class=" icon_pencil"></i></a>
