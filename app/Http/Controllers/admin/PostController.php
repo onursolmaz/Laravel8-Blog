@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::with('children')->get();
         return view("admin.post_add", ["categories" => $categories]);
 
     }
@@ -39,7 +39,8 @@ class PostController extends Controller
         $data->keywords = $request->input("keywords");
         $data->status = $request->input("status");
         $data->slug = $request->input("slug");
-        $data->image=Storage::putFile("images",$request->file("image"));
+        if($request->file("image")!=null)
+            $post->image=Storage::putFile("images",$request->file("image"));
         $data->save();
 
         return redirect()->route("admin_post");
@@ -55,7 +56,7 @@ class PostController extends Controller
     public function edit(Post $post, $id)
     {
         $data = Post::find($id);
-        $categories = Category::all();
+        $categories = Category::with('children')->get();
         return view("admin.post_edit", ["data" => $data, "categories" => $categories]);
 
 

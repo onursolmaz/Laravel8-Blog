@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->user_id}}</td>
-                                    <td>{{$post->category->title}}</td>
+                                    <td>{{\App\Http\Controllers\admin\CategoryController::getParentsTree($post->category,$post->category->title)}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->content}}</td>
                                     <td>

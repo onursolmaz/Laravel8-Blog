@@ -37,7 +37,7 @@
                                             <select class="form-control col-lg-2" id="parent_id" name="parent_id" required>
                                                 <option value="0">Base Category</option>
                                                 @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                                <option value="{{$category->id}}">{{\App\Http\Controllers\admin\CategoryController::getParentsTree($category,$category->title)}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

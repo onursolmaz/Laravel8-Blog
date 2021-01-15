@@ -32,7 +32,7 @@
                                                 <option value="0">Base Category</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}"
-                                                            @if($category->id==$data->parent_id) selected="selected" @endif>{{$category->title}}</option>
+                                                            @if($category->id==$data->parent_id) selected="selected" @endif>{{\App\Http\Controllers\admin\CategoryController::getParentsTree($category,$category->title)}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
