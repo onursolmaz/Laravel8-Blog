@@ -10,16 +10,15 @@
 
         <ul class="navbar-nav">
             <li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
-            <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">  Kategoriler </a>
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><i class="fas fa-list"></i> Kategoriler </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Teknoloji</a></li>
-                    <li><a class="dropdown-item dropdown-toggle" href="#"> Haber</a>
+                    <li><a class="dropdown-item dropdown-toggle" href="#">Yazılım</a>
                         <ul class="submenu dropdown-menu">
-                            <li><a class="dropdown-item" href="">Teknoloji</a></li>
-                            <li><a class="dropdown-item" href="">Haber</a></li>
-                            <li><a class="dropdown-item" href="">Spor</a></li>
+                            <li><a class="dropdown-item" href="">web desing</a></li>
+                            <li><a class="dropdown-item" href="">php</a></li>
+                            <li><a class="dropdown-item" href="">python</a></li>
                         </ul>
                     </li>
                     <li><a class="dropdown-item dropdown-toggle" href="#"> Spor </a>
@@ -32,16 +31,17 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Contact </a></li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Onur solmaz </a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"> Profilim</a></li>
-                    <li><a class="dropdown-item" href="#"> Çıkış yap </a></li>
+                    <li><a class="dropdown-item" href="#"><i class="far fa-user-circle"></i> Profilim</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Çıkış yap </a></li>
                 </ul>
             </li>
-
         </ul>
 
     </div>
