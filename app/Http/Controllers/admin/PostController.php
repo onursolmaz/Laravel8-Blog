@@ -40,7 +40,7 @@ class PostController extends Controller
         $data->status = $request->input("status");
         $data->slug = $request->input("slug");
         if($request->file("image")!=null)
-            $post->image=Storage::putFile("images",$request->file("image"));
+            $data->image=Storage::putFile("images",$request->file("image"));
         $data->save();
 
         return redirect()->route("admin_post");

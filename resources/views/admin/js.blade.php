@@ -1,17 +1,8 @@
 
 <!-- bootstrap -->
 <script src="{{asset("assets")}}/admin/js/bootstrap.min.js"></script>
-<!-- nice scroll -->
-
-
-
-
-
-
-
-
 <script src="{{asset("assets")}}/admin/js/jquery.scrollTo.min.js"></script>
-{{--<script src="{{asset("assets")}}/admin/js/jquery.nicescroll.js" type="text/javascript"></script>--}}  // summernote u çalıştırmıyor
+{{--<script src="{{asset("assets")}}/admin/js/jquery.nicescroll.js" type="text/javascript"></script>--}}{{-- summernote u çalıştırmıyor--}}
 <!-- charts scripts -->
 <script src="{{asset("assets")}}/admin/assets/jquery-knob/js/jquery.knob.js"></script>
 <script src="{{asset("assets")}}/admin/js/jquery.sparkline.js" type="text/javascript"></script>
