@@ -16,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <link rel="stylesheet" href="{{asset("assets")}}/css/style.css">
     @yield("javascript")
+    @yield("css")
 </head>
 <body>
 

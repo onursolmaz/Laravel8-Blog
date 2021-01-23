@@ -7,11 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//    return view('dashboard');
-//})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-Route::get("/home",[HomeController::class,"index"])->name("home");
+Route::get("/",[HomeController::class,"index"])->name("home");
 Route::get("/about",[HomeController::class,"about"])->name("about");
 Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 
@@ -61,8 +61,12 @@ Route::middleware("auth")->prefix("admin")->group(function (){
     Route::post("setting/update",[SettingController::class,"update"])->name("admin_setting_update");
 });
 
-Route::middleware("auth")->prefix("myuser")->namespace("myuser")->group(function (){
-    Route::get("/",[UserController::class,"index"])->name("profile");
+Route::middleware("auth")->prefix("myaccount")->namespace("myaccount")->group(function (){
+    Route::get("/",[UserController::class,"index"])->name("myprofile");
+});
+
+Route::middleware("auth")->prefix("user")->namespace("user")->group(function (){
+    Route::get("/profile",[UserController::class,"index"])->name("userprofile");
 });
 
 
