@@ -65,7 +65,7 @@ class SettingController extends Controller
         $setting->aboutus = $request->input("aboutus");
         $setting->contact = $request->input("contact");
         $setting->save();
-        return redirect()->route("admin_post");
+        return redirect()->route("admin_home");
 
     }
 

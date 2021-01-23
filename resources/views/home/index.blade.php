@@ -1,7 +1,10 @@
 @extends("layouts.home")
-@section("title","Home Page")
+@section("title",$setting->title)
+@section("description",$setting->description)
+@section("keywords",$setting->keywords)
 
 @section("content")
+    @include("home.slider")
     <main>
         <div class="container mt-3">
             <h1 class="display-4 text-center mb-2">Last Blogs</h1>

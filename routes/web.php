@@ -1,17 +1,21 @@
 <?php
 
+use App\Http\Controllers\admin\ImageController;
+use App\Http\Controllers\admin\PostController;
+use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get("/home",[HomeController::class,"index"])->name("home");
+Route::get("/about",[HomeController::class,"about"])->name("about");
+Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 
-Route::get("/home",[HomeController::class,"index"]);
+
 
 
 ## ADMİN
@@ -33,30 +37,32 @@ Route::middleware("auth")->prefix("admin")->group(function (){
     Route::get("category/delete{id}",[\App\Http\Controllers\admin\CategoryController::class,"destroy"])->name("admin_category_delete");
     Route::get("category/show",[\App\Http\Controllers\admin\CategoryController::class,"show"])->name("admin_category_show");
 
-    #Post
+    #Post(blog)
     Route::prefix("post")->group(function (){
-        Route::get("/",[\App\Http\Controllers\admin\PostController::class,"index"])->name("admin_post");
-        Route::get("/create",[\App\Http\Controllers\admin\PostController::class,"create"])->name("admin_post_add");
-        Route::post("/store",[\App\Http\Controllers\admin\PostController::class,"store"])->name("admin_post_store");
-        Route::get("/edit/{id}",[\App\Http\Controllers\admin\PostController::class,"edit"])->name("admin_post_edit");
-        Route::post("/update/{id}",[\App\Http\Controllers\admin\PostController::class,"update"])->name("admin_post_update");
-        Route::get("/delete/{id}",[\App\Http\Controllers\admin\PostController::class,"destroy"])->name("admin_post_delete");
-        Route::get("show",[\App\Http\Controllers\admin\PostController::class,"show"])->name("admin_post_show");
+        Route::get("/",[PostController::class,"index"])->name("admin_post");
+        Route::get("/create",[PostController::class,"create"])->name("admin_post_add");
+        Route::post("/store",[PostController::class,"store"])->name("admin_post_store");
+        Route::get("/edit/{id}",[PostController::class,"edit"])->name("admin_post_edit");
+        Route::post("/update/{id}",[PostController::class,"update"])->name("admin_post_update");
+        Route::get("/delete/{id}",[PostController::class,"destroy"])->name("admin_post_delete");
+        Route::get("show",[PostController::class,"show"])->name("admin_post_show");
     });
 
    #Post İmage galery
     Route::prefix("image")->group(function (){
-        Route::get("/create/{post_id}",[\App\Http\Controllers\admin\ImageController::class,"create"])->name("admin_image_add");
-        Route::post("/store/{post_id}",[\App\Http\Controllers\admin\ImageController::class,"store"])->name("admin_image_store");
-        Route::get("/delete/{id}",[\App\Http\Controllers\admin\ImageController::class,"destroy"])->name("admin_image_delete");
-        Route::get("show",[\App\Http\Controllers\admin\ImageController::class,"show"])->name("admin_image_show");
+        Route::get("/create/{post_id}",[ImageController::class,"create"])->name("admin_image_add");
+        Route::post("/store/{post_id}",[ImageController::class,"store"])->name("admin_image_store");
+        Route::get("/delete/{id}",[ImageController::class,"destroy"])->name("admin_image_delete");
+        Route::get("show",[ImageController::class,"show"])->name("admin_image_show");
     });
 
     #Setting
-    Route::get("setting",[\App\Http\Controllers\admin\SettingController::class,"index"])->name("admin_setting");
-    Route::post("setting/update",[\App\Http\Controllers\admin\SettingController::class,"update"])->name("admin_setting_update");
+    Route::get("setting",[SettingController::class,"index"])->name("admin_setting");
+    Route::post("setting/update",[SettingController::class,"update"])->name("admin_setting_update");
+});
 
-
+Route::middleware("auth")->prefix("myuser")->namespace("myuser")->group(function (){
+    Route::get("/",[UserController::class,"index"])->name("profile");
 });
 
 

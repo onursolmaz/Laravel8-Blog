@@ -3,6 +3,9 @@
 <head>
     <!-- Required meta tags -->
     <title>@yield("title")</title>
+    <meta name="description" content="@yield("description")">
+    <meta name="keywords" content="@yield("keywords")">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <!-- Bootstrap CSS -->
@@ -12,12 +15,11 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <link rel="stylesheet" href="{{asset("assets")}}/css/style.css">
+    @yield("javascript")
 </head>
 <body>
 
 @include("home.navbar")
-
-@include("home.slider")
 @section("content")
 @show
 @include("home.footer")
