@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\ImageController;
+use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\HomeController;
@@ -14,6 +15,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get("/",[HomeController::class,"index"])->name("home");
 Route::get("/about",[HomeController::class,"about"])->name("about");
 Route::get("/contact",[HomeController::class,"contact"])->name("contact");
+Route::post("/sendmessage",[HomeController::class,"sendmessage"])->name("sendmessage");
 
 
 
@@ -47,6 +49,17 @@ Route::middleware("auth")->prefix("admin")->group(function (){
         Route::get("/delete/{id}",[PostController::class,"destroy"])->name("admin_post_delete");
         Route::get("show",[PostController::class,"show"])->name("admin_post_show");
     });
+
+    #Messages
+    Route::prefix("messages")->group(function (){
+        Route::get("/",[MessageController::class,"index"])->name("admin_message");
+        Route::get("/edit/{id}",[MessageController::class,"edit"])->name("admin_message_edit");
+        Route::post("/update/{id}",[MessageController::class,"update"])->name("admin_message_update");
+        Route::get("/delete/{id}",[MessageController::class,"destroy"])->name("admin_message_delete");
+        Route::get("show",[MessageController::class,"show"])->name("admin_message_show");
+    });
+
+
 
    #Post İmage galery
     Route::prefix("image")->group(function (){

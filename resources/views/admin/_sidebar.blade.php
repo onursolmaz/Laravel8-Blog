@@ -27,9 +27,9 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{route("admin_message")}}">
                     <i class="icon_table"></i>
-                    <span>Other Links</span>
+                    <span>Contact Messages</span>
                 </a>
             </li>
 

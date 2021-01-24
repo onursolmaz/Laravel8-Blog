@@ -2,36 +2,43 @@
 @section("title","About us -". $setting->title)
 @section("css")
     <style>
-        .contact-form{
+        .contact-form {
             background: #fff;
             margin-top: 10%;
             margin-bottom: 5%;
             width: 70%;
         }
-        .contact-form .form-control{
-            border-radius:1rem;
+
+        .contact-form .form-control {
+            border-radius: 1rem;
         }
-        .contact-image{
+
+        .contact-image {
             text-align: center;
         }
-        .contact-image img{
+
+        .contact-image img {
             border-radius: 6rem;
             width: 11%;
             margin-top: -3%;
             transform: rotate(29deg);
         }
-        .contact-form form{
+
+        .contact-form form {
             padding: 14%;
         }
-        .contact-form form .row{
+
+        .contact-form form .row {
             margin-bottom: -7%;
         }
-        .contact-form h3{
+
+        .contact-form h3 {
             margin-bottom: 8%;
             margin-top: -10%;
             text-align: center;
             color: #0062cc;
         }
+
         .contact-form .btnContact {
             width: 50%;
             border: none;
@@ -42,8 +49,8 @@
             color: #fff;
             cursor: pointer;
         }
-        .btnContactSubmit
-        {
+
+        .btnContactSubmit {
             width: 50%;
             border-radius: 1rem;
             padding: 1.5%;
@@ -54,12 +61,11 @@
         }
 
 
-
     </style>
 @endsection
 
 @section("content")
-    <div style="margin-bottom:85px"></div>
+
 
     <div class="container">
         <div class="row">
@@ -67,33 +73,39 @@
                 <div class="contact-image">
                     <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
                 </div>
-                <form method="post">
+                <form method="post" action="{{route("sendmessage")}}">
                     <h3>Drop Us a Message</h3>
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                                <input type="text" name="name" class="form-control" placeholder="Your Name *"
+                                       value=""/>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                                <input type="text" name="email" class="form-control" placeholder="Your Email *"
+                                       value=""/>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                                <input type="number" name="phone" class="form-control"
+                                       placeholder="Your Phone Number *" value=""/>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                                <input type="submit" name="btnSubmit" class="btnContact" value="Send Message"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                                <textarea name="message" class="form-control" placeholder="Your Message *"
+                                          style="width: 100%; height: 150px;"></textarea>
                             </div>
                         </div>
                     </div>
                 </form>
+                @include("home.alertMessages")
             </div>
         </div>
-        <div class="row ">
+        <div class="row" style="margin-left: 270px">
             {!!$setting->contact !!}
         </div>
     </div>

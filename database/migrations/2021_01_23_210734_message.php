@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Setting extends Migration
+class Message extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,11 @@ class Setting extends Migration
         //
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         //

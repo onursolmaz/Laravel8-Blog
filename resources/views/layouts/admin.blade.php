@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="{{asset("assets")}}/admin/img/favicon.png">
     <title>Creative - Bootstrap Admin Template</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <!-- Bootstrap CSS -->
     <link href="{{asset("assets")}}/admin/css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap theme -->
