@@ -29,7 +29,6 @@
                                 <th>User</th>
                                 <th>Category</th>
                                 <th>Title</th>
-                                <th>content</th>
                                 <th>image</th>
                                 <th>image galery</th>
                                 <th>keywords</th>
@@ -42,7 +41,6 @@
                                     <td>{{$post->user_id}}</td>
                                     <td>{{\App\Http\Controllers\admin\CategoryController::getParentsTree($post->category,$post->category->title)}}</td>
                                     <td>{{$post->title}}</td>
-                                    <td>{{$post->content}}</td>
                                     <td>
                                         @if($post->image)
                                             <img src="{{Storage::url($post->image)}}" height="40">
@@ -53,7 +51,7 @@
                                         >
 
 
-                                            <i class="icon_images fa-2x"></i></a></td>
+                                            <i class="far fa-images fa-2x"></i></a></td>
                                     <td>{{$post->keywords}}</td>
                                     <td>{{$post->status}}</td>
                                     <td><a class="btn btn-success"

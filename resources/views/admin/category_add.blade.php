@@ -26,7 +26,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="title" name="title" minlength="5" type="text" required />
+                                            <input class="form-control" id="title" name="title"   type="text" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -49,7 +49,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="keywords" name="keywords" minlength="5" type="text" required />
+                                            <input class="form-control" id="keywords" name="keywords"   type="text" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">

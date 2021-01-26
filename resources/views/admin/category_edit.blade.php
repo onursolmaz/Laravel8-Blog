@@ -40,7 +40,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="title" name="title" minlength="5"
+                                            <input class="form-control" id="title" name="title"
                                                    type="text" value="{{$data->title}}" required/>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="keywords" name="keywords" minlength="5"
+                                            <input class="form-control" id="keywords" name="keywords"
                                                    type="text" value="{{$data->keywords}}" required/>
                                         </div>
                                     </div>
