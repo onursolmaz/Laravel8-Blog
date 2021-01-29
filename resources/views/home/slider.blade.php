@@ -12,7 +12,7 @@
                 <img src="{{Storage::url($rs->image)}}" class="d-block w-100" height="550px" >
                 <div class="carousel-caption d-none d-md-block">
                     <h2>{{$rs->title}}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>{{$rs->keywords}}</p>
                 </div></a>
             </div>
             @endforeach

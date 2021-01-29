@@ -7,51 +7,25 @@
     @include("home.slider")
     <main>
         <div class="container mt-3">
-            <h1 class="display-4 text-center mb-2">Last Blogs</h1>
+            <h1 class="display-4 text-center mb-4">Last Blogs</h1>
+{{--            <h1 class="jumbotron-heading text-center mb-3">Album example</h1>--}}
             <div class="row">
                 <div class="col-md-8">
+                    @foreach($lastBlogs as $blog)
                     <div class="card mb-4">
-                        <img src="{{asset("assets")}}/img/slider-1.jpeg" class="card-img-top img-thumbnail" alt="">
+                        <img src="{{Storage::url($blog->image)}}" class="card-img-top img-thumbnail" style="height: 500px">
                         <div class="card-body">
-                            <h4 class="card-title">Post Title</h4>
+                            <h4 class="card-title">{{$blog->title}}</h4>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti explicabo asperiores
-                                quae provident veritatis molestias laborum incidunt nemo laboriosam numquam.
+                                {!! Str::words($blog->content, 50,'....')  !!}
                             </p>
-                            <button type="button" class="btn btn-primary">Read More</button>
+                            <a href="{{route("post",["id"=>$blog->id])}}" type="button" class="btn btn-primary">Read More</a>
                         </div>
                         <div class="card-footer text-muted">
-                            Posted on January 1, 2019
+                            {{$blog->created_at}}
                         </div>
                     </div>
-                    <div class="card mb-4">
-                        <img src="{{asset("assets")}}/img/slider-2.jpeg" class="card-img-top img-thumbnail" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title">Post Title</h4>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti explicabo asperiores
-                                quae provident veritatis molestias laborum incidunt nemo laboriosam numquam.
-                            </p>
-                            <button type="button" class="btn btn-primary">Read More</button>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Posted on January 1, 2019
-                        </div>
-                    </div>
-                    <div class="card mb-4">
-                        <img src="{{asset("assets")}}/img/slider-3.jpeg" class="card-img-top img-thumbnail" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title">Post Title</h4>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti explicabo asperiores
-                                quae provident veritatis molestias laborum incidunt nemo laboriosam numquam.
-                            </p>
-                            <button type="button" class="btn btn-primary">Read More</button>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Posted on January 1, 2019
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 @include("home.sidebarR")
             </div>
