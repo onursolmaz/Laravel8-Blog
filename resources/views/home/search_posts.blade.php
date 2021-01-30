@@ -1,13 +1,9 @@
 @extends("layouts.home")
-@section("title",$data->title)
+@section("title")
 
 
 @section("content")
-    <div style="margin-bottom:59px"></div>
-        <div class="breadcrumb">
-            <li><i class="fa fa-home"></i><a href="{{route("admin_home")}}">Home ></a></li>
-            <li>{{\App\Http\Controllers\admin\CategoryController::getParentsTree($data,$data->title)}}</li>
-        </div>
+    <div style="margin-bottom:100px"></div>
 <div class="container">
 
     <div class="row">

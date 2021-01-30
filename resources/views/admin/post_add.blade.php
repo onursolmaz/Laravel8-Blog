@@ -34,7 +34,7 @@
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="title" name="title" minlength="5"
-                                                   type="text" required/>
+                                                   type="text" required autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -61,20 +61,20 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="keywords" minlength="5" type="text"
-                                                   required/>
+                                            <input class="form-control" name="keywords" autocomplete="off" type="text"
+                                                  />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Image</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="image" minlength="5" type="file"/>
+                                            <input class="form-control" name="image" autocomplete="off" type="file"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Slug</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" name="slug" minlength="5" type="text" required/>
+                                            <input class="form-control" name="slug"  type="text" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

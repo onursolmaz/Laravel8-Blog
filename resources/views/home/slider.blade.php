@@ -8,7 +8,7 @@
         <div class="carousel-inner">
             @foreach($slider as $rs)
             <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}">
-                <a href="{{route("post",["id"=>$rs->id])}}">
+                <a href="{{route("post",["id"=>$rs->id,"user_id"=>$rs->user_id])}}">
                 <img src="{{Storage::url($rs->image)}}" class="d-block w-100" height="550px" >
                 <div class="carousel-caption d-none d-md-block">
                     <h2>{{$rs->title}}</h2>

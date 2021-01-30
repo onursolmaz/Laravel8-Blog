@@ -16,9 +16,12 @@ Route::get("/",[HomeController::class,"index"])->name("home");
 Route::get("/about",[HomeController::class,"about"])->name("about");
 Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 Route::post("/sendmessage",[HomeController::class,"sendmessage"])->name("sendmessage");
-Route::get("/post/{id}",[HomeController::class,"post"])->name("post");
+Route::get("/post/{id}/{user_id}",[HomeController::class,"post"])->name("post");
 Route::get("/categoryposts/{id}",[HomeController::class,"categoryposts"])->name("categoryposts");
 
+Route::post("/getBlog",[HomeController::class,"getBlog"])->name("getBlog");
+
+Route::get("/blogList/{search}",[HomeController::class,"blogList"])->name("blogList");
 
 
 

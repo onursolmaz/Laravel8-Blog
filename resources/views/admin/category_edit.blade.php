@@ -40,7 +40,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="title" name="title"
+                                            <input class="form-control" id="title" name="title" autocomplete="off"
                                                    type="text" value="{{$data->title}}" required/>
                                         </div>
                                     </div>
@@ -49,14 +49,14 @@
                                         <label class="control-label col-lg-2">Slug *</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" value="{{$data->slug}}" id="slug" type="text"
-                                                   name="slug"/>
+                                                   name="slug" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="keywords" name="keywords"
-                                                   type="text" value="{{$data->keywords}}" required/>
+                                                   type="text" value="{{$data->keywords}}" autocomplete="off" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

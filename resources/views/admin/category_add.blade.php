@@ -26,7 +26,7 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Title *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="title" name="title"   type="text" required />
+                                            <input class="form-control" id="title" name="title"   type="text" required autocomplete="off" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -43,13 +43,13 @@
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Slug *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="slug" type="text" name="slug" />
+                                            <input class="form-control " id="slug" type="text" name="slug" autocomplete="off" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label col-lg-2">Keywords *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="keywords" name="keywords"   type="text" required />
+                                            <input class="form-control" id="keywords" name="keywords"   type="text" required autocomplete="off" />
                                         </div>
                                     </div>
                                     <div class="form-group ">

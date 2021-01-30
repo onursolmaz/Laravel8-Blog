@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Answer</th>
-                <td><textarea name="note" id="" cols="75" rows="5">{{$data->note}}</textarea></td>
+                <td><textarea name="note" id="" cols="75" rows="5" >{{$data->note}}</textarea></td>
 
             </tr>
             <tr>
