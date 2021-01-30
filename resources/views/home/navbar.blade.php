@@ -15,12 +15,12 @@
             <li class="nav-item"><a class="nav-link"href="{{route("contact")}}"> Contact </a></li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                @auth
-
+            <li class="nav-item dropdown d-inline-flex">
+                @auth<img src="{{Auth::user()->profile_photo_url}}" style="width: 38px;height: 38px;border-radius: 50%;">
                 <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">{{Auth::user()->name}}</a>
+
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="{{route("userprofile")}}"><i class="far fa-user-circle"></i>My account</a></li>
+                    <li><a class="dropdown-item" href="{{route("myaccount")}}"><i class="far fa-user-circle"></i>My account</a></li>
                     <li><a class="dropdown-item" href="{{route("admin_logout")}}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
                 @endauth
