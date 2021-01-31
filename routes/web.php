@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\PostController;
+use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -74,6 +75,16 @@ Route::middleware("auth")->prefix("admin")->group(function (){
         Route::get("show",[ImageController::class,"show"])->name("admin_image_show");
     });
 
+    ## Comments
+    Route::prefix("comments")->group(function (){
+        Route::get("/",[ReviewController::class,"index"])->name("admin_comment");
+        Route::post("/update/{id}",[ReviewController::class,"update"])->name("admin_comment_update");
+        Route::get("/delete/{id}",[ReviewController::class,"destroy"])->name("admin_comment_delete");
+        Route::get("show/{id}",[ReviewController::class,"show"])->name("admin_comment_show");
+    });
+
+
+
     #Setting
     Route::get("setting",[SettingController::class,"index"])->name("admin_setting");
     Route::post("setting/update",[SettingController::class,"update"])->name("admin_setting_update");
@@ -81,6 +92,8 @@ Route::middleware("auth")->prefix("admin")->group(function (){
 
 Route::middleware("auth")->prefix("myaccount")->namespace("myaccount")->group(function (){
     Route::get("/",[UserController::class,"index"])->name("myaccount");
+    Route::get("/mycomments",[UserController::class,"myComment"])->name("mycomments");
+    Route::get("/deleteComment/{id}",[UserController::class,"destroyMyComment"])->name("user_comment_delete");
 });
 
 Route::middleware("auth")->prefix("user")->namespace("user")->group(function (){

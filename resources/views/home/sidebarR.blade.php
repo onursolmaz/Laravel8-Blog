@@ -14,7 +14,6 @@
                     </button>
                  </span>
             </form>
-            @livewireScripts
         </div>
     </div>
 </div>

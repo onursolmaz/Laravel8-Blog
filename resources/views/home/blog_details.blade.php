@@ -1,7 +1,17 @@
 @extends("layouts.home")
 @section("title",$data->title)
 
+
 @section("content")
+    @php
+        function getTimeAgo($carbonObject) {
+             return str_ireplace(
+                 [' seconds', ' second', ' minutes', ' minute', ' hours', ' hour', ' days', ' day', ' weeks', ' week'],
+                 [' second', ' second', ' min.', ' min.', 'h', 'h', ' day', ' day', 'week', 'week'],
+                 $carbonObject->diffForHumans()
+             );
+         }
+    @endphp
     <div style="margin-bottom: 100px"></div>
     <main>
         <div class="container mt-3">
@@ -29,67 +39,29 @@
                     <p class="lead">{!! $data->content !!}</p>
 
 
-
                     <hr>
 
                     <!-- Comments Form -->
                     <div class="card my-4">
                         <h5 class="card-header">Leave a Comment:</h5>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                        @livewire("review",["id"=>$data->id])
                     </div>
 
                     <!-- Single Comment -->
-                    <div class="media mb-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-
-                    <!-- Comment with nested comments -->
-                    <div class="media mb-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                            <div class="media mt-4">
-                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Commenter Name</h5>
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                    sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                                    Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in
-                                    faucibus.
-                                </div>
+                    @foreach($reviews as $rs)
+                        <div class="media mb-4 ">
+                            <img class="d-flex mr-3 rounded-circle" src="{{$rs->user->profile_photo_url}}" height="45px"
+                                 width="45px">
+                            <div class="media-body">
+                                <h5 class="mt-0">{{$rs->user->name}}</h5>
+                                {{$rs->comment}}
                             </div>
-
-                            <div class="media mt-4">
-                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Commenter Name</h5>
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                    sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                                    Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in
-                                    faucibus.
-                                </div>
-                            </div>
-
+                            <span class="text-muted" style="font-size: 15px">
+                            {{getTimeAgo($rs->created_at)}}
+                        </span>
                         </div>
-                    </div>
-
+                        <hr>
+                    @endforeach
                 </div>
                 <div class="col-md-4">
                     @include("home.sidebarR")

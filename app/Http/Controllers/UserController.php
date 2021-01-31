@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,12 +15,17 @@ class UserController extends Controller
         return view("home.user_profile");
     }
 
-    public function create()
+    public function myComment()
     {
+        $datalist=Review::where("user_id","=",Auth::user()->id)->get();
+        return view("home.user_comments",["datalist"=>$datalist]);
 
     }
-    public function store(Request $request)
+    public function destroyMyComment(Review $review,$id)
     {
+        $data=Review::find($id);
+        $data->delete();
+        return redirect()->back()->with("success","Comment deleted");
 
     }
     public function show(User $user)

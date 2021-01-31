@@ -18,11 +18,12 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    public function Reviews(){
+        return $this->hasMany(Review::class);
+    }
+
+
+
     protected $fillable = [
         'name',
         'email',
@@ -58,4 +59,7 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+
 }

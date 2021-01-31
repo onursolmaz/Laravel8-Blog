@@ -1,7 +1,7 @@
-<nav class="navbar bg-dark navbar-expand-sm navbar-dark fixed-top">
-    <a class="navbar-brand" href="/">
-        <img src="{{asset("assets")}}/img/brand.svg" width="30" height="30" alt="">
-        Blog
+<nav class="navbar bg-dark navbar-expand-sm navbar-dark fixed-top" style="height: 62px">
+    <a class="navbar-brand" href="/" style="display:inline-flex;">
+        <img src="{{asset("assets")}}/img/brand.svg" width="30" height="37" >
+          <span style="font-size: 25px">log</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
         <span class="navbar-toggler-icon"></span>

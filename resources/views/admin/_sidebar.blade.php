@@ -32,6 +32,12 @@
                     <span>Contact Messages</span>
                 </a>
             </li>
+            <li>
+                <a href="{{route("admin_comment")}}">
+                    <i class="icon_table"></i>
+                    <span>Comments</span>
+                </a>
+            </li>
 
         </ul>
         <!-- sidebar menu end-->
