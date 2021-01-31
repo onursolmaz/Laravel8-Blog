@@ -23,7 +23,6 @@
                         by
                         <a href="#">{{$user->name}}</a>
                     </p>
-
                     <hr>
 
                     <!-- Date/Time -->

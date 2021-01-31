@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -83,8 +84,6 @@ Route::middleware("auth")->prefix("admin")->group(function (){
         Route::get("show/{id}",[ReviewController::class,"show"])->name("admin_comment_show");
     });
 
-
-
     #Setting
     Route::get("setting",[SettingController::class,"index"])->name("admin_setting");
     Route::post("setting/update",[SettingController::class,"update"])->name("admin_setting_update");
@@ -98,6 +97,21 @@ Route::middleware("auth")->prefix("myaccount")->namespace("myaccount")->group(fu
 
 Route::middleware("auth")->prefix("user")->namespace("user")->group(function (){
     Route::get("/profile",[UserController::class,"index"])->name("userprofile");
+
+    # For user blog add
+    Route::prefix("post")->group(function (){
+        Route::get("/",[BlogController::class,"index"])->name("user_post");
+        Route::get("/create",[BlogController::class,"create"])->name("user_post_add");
+        Route::post("/store",[BlogController::class,"store"])->name("user_post_store");
+        Route::get("/edit/{id}",[BlogController::class,"edit"])->name("user_post_edit");
+        Route::post("/update/{id}",[BlogController::class,"update"])->name("user_post_update");
+        Route::get("/delete/{id}",[BlogController::class,"destroy"])->name("user_post_delete");
+        Route::get("show",[BlogController::class,"show"])->name("user_post_show");
+    });
+
+
+
+
 });
 
 
