@@ -34,9 +34,12 @@ Route::post("/admin/logincheck",[HomeController::class,"logincheck"])->name("adm
 Route::get("/admin/logout",[HomeController::class,"logout"])->name("admin_logout");
 
 Route::middleware("auth")->prefix("admin")->group(function (){
-    //admin/category, admin/add şeklinde oluştur
+    //admin/category, admin/add şeklinde oluşturur
+    #Admin
+    Route::middleware('admin')->group(function (){
 
     Route::get("/",[\App\Http\Controllers\admin\HomeController::class,"index"])->name("admin_home");
+
     #Category
     Route::get("category",[\App\Http\Controllers\admin\CategoryController::class,"index"])->name("admin_category");
     Route::get("category/add",[\App\Http\Controllers\admin\CategoryController::class,"add"])->name("admin_category_add");
@@ -87,6 +90,9 @@ Route::middleware("auth")->prefix("admin")->group(function (){
     #Setting
     Route::get("setting",[SettingController::class,"index"])->name("admin_setting");
     Route::post("setting/update",[SettingController::class,"update"])->name("admin_setting_update");
+
+    });
+
 });
 
 Route::middleware("auth")->prefix("myaccount")->namespace("myaccount")->group(function (){
@@ -108,9 +114,6 @@ Route::middleware("auth")->prefix("user")->namespace("user")->group(function (){
         Route::get("/delete/{id}",[BlogController::class,"destroy"])->name("user_post_delete");
         Route::get("show",[BlogController::class,"show"])->name("user_post_show");
     });
-
-
-
 
 });
 

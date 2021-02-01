@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Post;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -81,6 +83,12 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $comment = Review::where("post_id", $id)->get();
+        $images=Image::where("post_id",$id);
+        foreach ($images as $image)
+            $image->delete();
+        foreach ($comment as $com)
+            $com->delete();
         $post->delete();
         return redirect()->route("admin_post");
     }

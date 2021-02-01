@@ -6,7 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2" style="margin-top: 33px !important;">
-                <h3 class="card-title h3">User Profile</h3>
+                <div class="card-header">
+                    <h5 class="card-title h5">User Profile</h5>
+                </div>
                 <div class="list-group text-primary">
                     <a href="#" class="list-group-item">{{Auth::user()->name}}</a>
                     <a href="{{route("user_post")}}" class="list-group-item">My blogs</a>

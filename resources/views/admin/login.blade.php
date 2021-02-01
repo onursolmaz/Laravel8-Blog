@@ -32,6 +32,7 @@
     <form class="login-form" action="{{route("admin_logincheck")}}" method="post">
         @csrf
         <div class="login-wrap">
+            @include("home.alertMessages")
             <p class="login-img"><i class="icon_lock_alt"></i></p>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_profile"></i></span>

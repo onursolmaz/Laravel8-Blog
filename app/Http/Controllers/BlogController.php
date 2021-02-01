@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Post;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,7 +15,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts = Post::where("user_id",Auth::user()->id)->get();
+        $posts = Post::where("user_id", Auth::user()->id)->get();
         return view("home.user_post", ["posts" => $posts]);
     }
 
@@ -36,11 +38,11 @@ class BlogController extends Controller
         $data->keywords = $request->input("keywords");
         $data->status = "waiting";
         $data->slug = $request->input("slug");
-        if($request->file("image")!=null)
-            $data->image=Storage::putFile("images",$request->file("image"));
+        if ($request->file("image") != null)
+            $data->image = Storage::putFile("images", $request->file("image"));
         $data->save();
 
-        return redirect()->route("user_post")->with("success","New blog send");
+        return redirect()->route("user_post")->with("success", "New blog send");
     }
 
 
@@ -67,17 +69,24 @@ class BlogController extends Controller
         $post->content = $request->input("content");
         $post->keywords = $request->input("keywords");
         $post->slug = $request->input("slug");
-        if($request->file("image")!=null)
-            $post->image=Storage::putFile("images",$request->file("image"));
+        if ($request->file("image") != null)
+            $post->image = Storage::putFile("images", $request->file("image"));
         $post->save();
-        return redirect()->back()->with("success","Blog Updated");
+        return redirect()->route("user_post")->with("success", "Blog Updated");
     }
 
 
     public function destroy($id)
     {
         $post = Post::find($id);
+        $comment = Review::where("post_id", $id)->get();
+        $images=Image::where("post_id",$id);
+        foreach ($images as $image)
+            $image->delete();
+        foreach ($comment as $com)
+            $com->delete();
+        foreach ()
         $post->delete();
-        return redirect()->route("user_post")->with("success","Blog Deleted");
+        return redirect()->route("user_post")->with("success", "Blog Deleted");
     }
 }

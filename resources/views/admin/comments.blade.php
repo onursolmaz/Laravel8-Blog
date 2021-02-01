@@ -44,11 +44,13 @@
                                         return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
                                             <i class="icon_pencil fa-2x"></i>
                                         </a>
+
                                         <a href="{{route("admin_comment_delete",["id"=>$rs->id])}}"
                                            >
                                             <i class="fas fa-trash-alt fa-2x"></i>
                                         </a>
-                                    </td>
+                                        </td>
+
                                 </tr>
                             @endforeach
                             </tbody>

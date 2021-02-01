@@ -16,7 +16,8 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown d-inline-flex">
-                @auth<img src="{{Auth::user()->profile_photo_url}}" style="width: 38px;height: 38px;border-radius: 50%;">
+                @auth
+                    <img src="{{Auth::user()->profile_photo_url}}" style="width: 38px;height: 38px;border-radius: 50%;">
                 <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">{{Auth::user()->name}}</a>
 
                 <ul class="dropdown-menu dropdown-menu-right">

@@ -19,8 +19,8 @@
                         <div class="card mb-4">
                             <img src="{{Storage::url($blog->image)}}" class="card-img-top img-thumbnail" width="600px">
                             <div class="card-body">
-                                <h4 class="card-title">{{$blog->title}}</h4>
-                                <p class="card-text" ><div>{!! Str::words($blog->content, 50,'....')  !!}</div></p>
+                                <h3 class="card-title">{{$blog->title}}</h3>
+                                <p class="card-text">{!! $blog->keywords !!}</p>
                                 <a href="{{route("post",["id"=>$blog->id,"user_id"=>$blog->user_id])}}" type="button" class="btn btn-primary">Read More</a>
                                 <div class="d-inline float-right"><i class="far fa-comments"></i> {{$reviewCount}}</div>
                             </div>
@@ -30,6 +30,9 @@
                         </div>
                         @endif
                     @endforeach
+
+
+
                 </div>
                 <div class="col-md-4">
                     @include("home.sidebarR")

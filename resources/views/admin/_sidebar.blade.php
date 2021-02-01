@@ -16,7 +16,7 @@
             </li>
             <li>
                 <a href="{{route("admin_post")}}">
-                    <i class="icon_genius"></i>
+                    <i class="fas fa-blog"></i>
                     <span>Bloglar</span>
                 </a>
             </li>
@@ -28,13 +28,13 @@
             </li>
             <li>
                 <a href="{{route("admin_message")}}">
-                    <i class="icon_table"></i>
+                    <i class="far fa-envelope"></i>
                     <span>Contact Messages</span>
                 </a>
             </li>
             <li>
                 <a href="{{route("admin_comment")}}">
-                    <i class="icon_table"></i>
+                    <i class="far fa-comments"></i>
                     <span>Comments</span>
                 </a>
             </li>
