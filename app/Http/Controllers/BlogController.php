@@ -85,7 +85,6 @@ class BlogController extends Controller
             $image->delete();
         foreach ($comment as $com)
             $com->delete();
-        foreach ()
         $post->delete();
         return redirect()->route("user_post")->with("success", "Blog Deleted");
     }
