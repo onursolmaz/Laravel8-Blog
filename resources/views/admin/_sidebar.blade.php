@@ -27,6 +27,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{route("admin_users")}}">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{route("admin_message")}}">
                     <i class="far fa-envelope"></i>
                     <span>Contact Messages</span>
