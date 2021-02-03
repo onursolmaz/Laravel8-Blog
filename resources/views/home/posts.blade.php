@@ -14,7 +14,7 @@
         @foreach($datalist as $rs)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="{{route("post",["id"=>$rs->id,"user_id"=>$rs->user_id])}}"><img class="card-img-top" src="{{Storage::url($rs->image)}}"></a>
+                <a href="{{route("post",["id"=>$rs->id,"user_id"=>$rs->user_id])}}"><img class="card-img-top" height="250" src="{{Storage::url($rs->image)}}"></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="{{route("post",["id"=>$rs->id,"user_id"=>$rs->user_id])}}">{{$rs->title}}</a>

@@ -11,7 +11,7 @@
                 <a href="{{route("post",["id"=>$rs->id,"user_id"=>$rs->user_id])}}">
                 <img src="{{Storage::url($rs->image)}}" class="d-block w-100" height="550px" >
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>{{$rs->title}}</h2>
+                    <h2 style="text-transform: uppercase;"><strong>{{$rs->title}}</strong></h2>
                     <p>{{$rs->keywords}}</p>
                 </div></a>
             </div>

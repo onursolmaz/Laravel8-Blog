@@ -1,7 +1,7 @@
 @php
     $parentCategories=\App\Http\Controllers\HomeController::categoryList()
 @endphp
-<li class="nav-item dropdown">
+<li class="nav-item  active dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Kategoriler </a>
     <ul class="dropdown-menu">
         @foreach($parentCategories as $rs)

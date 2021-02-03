@@ -15,6 +15,7 @@
 
             </div>
             <div class="row">
+                @include("home.alertMessages")
                 <div class="col-lg-12">
                     <a class="btn btn-primary btn-lg" href="{{route("admin_post_add")}}"><i class="fa-lg icon_plus"></i>
                         Add new post</a>
@@ -58,8 +59,8 @@
                                            href="{{route("admin_post_edit",["id"=>$post->id])}}"><i class=" icon_pencil"></i></a>
 
                                     </td>
-                                    <td><a class="btn btn-danger"
-                                           href="{{route("admin_post_delete",["id"=>$post->id])}}" onclick="return confirm('are you sure!')"><i class="icon_close_alt2"></i></a>
+                                    <td><a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                                           href=""><i class="icon_close_alt2"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -72,4 +73,24 @@
             </div>
         </section>
     </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Blog Delete!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" href="{{route("admin_post_delete",["id"=>$post->id])}}" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

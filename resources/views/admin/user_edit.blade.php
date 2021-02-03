@@ -49,6 +49,16 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-2">Roles</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control col-lg-2" name="id">
+                                                @foreach($datalist as $rs)
+                                                    <option value="{{$rs->id}}">{{$rs->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">

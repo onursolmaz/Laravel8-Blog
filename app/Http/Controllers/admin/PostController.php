@@ -45,7 +45,7 @@ class PostController extends Controller
             $data->image=Storage::putFile("images",$request->file("image"));
         $data->save();
 
-        return redirect()->route("admin_post");
+        return redirect()->route("admin_post")->with("success","Blog Added");
     }
 
 
@@ -90,6 +90,6 @@ class PostController extends Controller
         foreach ($comment as $com)
             $com->delete();
         $post->delete();
-        return redirect()->route("admin_post");
+        return redirect()->route("admin_post")->with("success","Blog Deleted");
     }
 }

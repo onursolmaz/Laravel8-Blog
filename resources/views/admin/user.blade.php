@@ -39,7 +39,12 @@
                                         @endif
                                     </td>
                                     <td>{{$data->name}}</td>
-                                    <td>@foreach($data->roles as $role)
+                                    <td>
+{{--                                        @foreach($data->roles as $role)--}}
+{{--                                            {{$role->name}}--}}
+{{--                                        @endforeach--}}
+
+                                        @foreach($data->roles as $role)
                                         {{$role->name}},
                                         @endforeach
                                         <a href="{{route("admin_user_roles",["id"=>$data->id])}}"

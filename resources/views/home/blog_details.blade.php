@@ -18,15 +18,15 @@
             <div class="row">
                 <div class="col-lg-8">
 
-                    <h1 class="mt-4">{{$data->title}}</h1>
+                    <h1 class="mt-4 text-uppercase">{{$data->title}}</h1>
                     <p class="lead">
-                        by
+                        <i class="fas fa-user-edit"></i> by
                         <a href="#">{{$user->name}}</a>
                     </p>
                     <hr>
 
                     <!-- Date/Time -->
-                    <p>{{$data->created_at}}</p>
+                    <p><i class="far fa-calendar-alt"></i> {{$data->created_at}}</p>
 
                     <hr>
 
@@ -36,8 +36,6 @@
 
                     <!-- Post Content -->
                     <p class="lead">{!! $data->content !!}</p>
-
-
                     <hr>
 
                     <!-- Comments Form -->
@@ -56,14 +54,14 @@
                                 {{$rs->comment}}
                             </div>
                             <span class="text-muted" style="font-size: 15px">
-                            {{getTimeAgo($rs->created_at)}}
+                           <i class="far fa-clock"></i> {{getTimeAgo($rs->created_at)}}
                         </span>
                         </div>
                         <hr>
                     @endforeach
                 </div>
                 <div class="col-md-4">
-                    @include("home.sidebarR")
+                    @include("home.sidebarR",["categoryList"=>$categoryList])
                 </div>
 
             </div>

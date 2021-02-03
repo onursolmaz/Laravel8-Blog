@@ -6,17 +6,7 @@
     <div style="margin-bottom:59px"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2" style="margin-top: 33px !important;">
-                <div class="card-header">
-                    <h5 class="card-title h5">User Profile</h5>
-                </div>
-                <div class="list-group text-primary">
-                    <a href="#" class="list-group-item">{{Auth::user()->name}}</a>
-                    <a href="{{route("user_post")}}" class="list-group-item">My blogs</a>
-                    <a href="" class="list-group-item">My comments</a>
-                </div>
-
-            </div>
+            @include("home._userMenu")
 
             <div class="col-md-10">
                 <div style="margin-top: 75px">
@@ -39,7 +29,7 @@
                                 <td>{{$rs->status}}</td>
                                 </td>
                                 <td>
-                                    <a href="{{route("user_comment_delete",["id"=>$rs->id])}}">
+                                    <a data-toggle="modal" data-target="#exampleModal" href="{{route("user_comment_delete",["id"=>$rs->id])}}">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -57,5 +47,23 @@
     </div>
     <div style="margin-bottom: 300px"></div>
     <!-- /.container -->
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Comment Delete!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" href="{{route("user_comment_delete",["id"=>$rs->id])}}" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

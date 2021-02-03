@@ -3,7 +3,7 @@ $setting=\App\Http\Controllers\HomeController::getSettings();
 @endphp
 <footer class="py-5 bg-dark text-white ">
 <div class="row" style="margin: 0; padding: 0;">
-        <div class="col-3">
+        <div class="col-3" style="margin-left: 85px">
             <span style="margin-left: 80px">Contact</span>
             <span class="d-block m-2 "><i class="fas fa-map-marker-alt mr-2"></i>ODTÜ Teknokent/ANKARA</span>
             <span class="d-block m-2 "><i class="fas fa-phone mr-2"></i>{{$setting->phone}}</span>
@@ -18,12 +18,6 @@ $setting=\App\Http\Controllers\HomeController::getSettings();
                 <li class="list-inline-item"><a class="nav-link" href="{{$setting->youtube}}" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></li>
             </ul>
             <span>Copyright © All rights reserved | Blog</span>
-        </div>
-        <div class="col-3">
-            <span>Contact</span>
-            <span class="d-block m-2 "><i class="fas fa-map-marker-alt mr-2"></i>ODTÜ Teknokent/ANKARA</span>
-            <span class="d-block m-2 "><i class="fas fa-phone mr-2"></i>0312 145 2211</span>
-            <span class="d-block m-2 "><i class="fas fa-envelope mr-2"></i>solmaz_onur@hotmail.com</span>
         </div>
 </div>
 </footer>

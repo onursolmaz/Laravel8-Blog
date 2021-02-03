@@ -6,17 +6,7 @@
     <div style="margin-bottom:59px"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2" style="margin-top: 33px !important;">
-                <div class="card-header">
-                    <h5 class="card-title h5">User Profile</h5>
-                </div>
-                <div class="list-group text-primary">
-                    <a href="#" class="list-group-item">{{Auth::user()->name}}</a>
-                    <a href="{{route("user_post")}}" class="list-group-item">My blogs</a>
-                    <a href="{{route("mycomments")}}" class="list-group-item">My comments</a>
-                </div>
-
-            </div>
+            @include("home._userMenu")
 
             <div class="col-md-10">
 

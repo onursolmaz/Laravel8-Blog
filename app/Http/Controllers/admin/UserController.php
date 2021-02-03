@@ -40,6 +40,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data=User::find($id);
+//        $datalist=Role::all()->sortBy("name");
         return view("admin.user_edit",["data"=>$data]);
     }
 

@@ -6,17 +6,7 @@
     <div style="margin-bottom:59px"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2" style="margin-top: 33px !important;">
-                <div class="card-header">
-                    <h5 class="card-title h5">User Profile</h5>
-                </div>
-                <div class="list-group text-primary">
-                    <a href="#" class="list-group-item">{{Auth::user()->name}}</a>
-                    <a href="" class="list-group-item">My blogs</a>
-                    <a href="{{route("mycomments")}}" class="list-group-item">My comments</a>
-                </div>
-
-            </div>
+            @include("home._userMenu")
 
             <div class="col-md-10">
 
@@ -45,8 +35,7 @@
                                     @endif
                                 </td>
                                 <td>{{$post->status}}</td>
-                                <td><a
-                                       href="{{route("user_post_delete",["id"=>$post->id])}}"onclick="return confirm('are you sure!')"><i class="fas fa-trash-alt"></i></a>
+                                <td><a data-toggle="modal" data-target="#exampleModal" href=""><i class="fas fa-trash-alt"></i></a>
                                 </td>
                                 <td><a
                                        href="{{route("user_post_edit",["id"=>$post->id])}}" ><i class="fas fa-pen"></i></a>
@@ -65,4 +54,24 @@
         @include("profile.show")
     </div>
     <div style="margin-bottom: 300px"></div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Blog Delete!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" href="{{route("user_post_delete",["id"=>$post->id])}}" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

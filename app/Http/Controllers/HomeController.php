@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\Post;
@@ -15,6 +16,17 @@ use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class HomeController extends Controller
 {
+    protected $appends = [
+        "getCategoryCount"
+    ];
+
+    public static function getCategoryCount($id)
+    {
+        return Post::where("category_id",$id)->count();
+    }
+
+
+
 
     public static function categoryList()
     {
@@ -33,12 +45,14 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider=Post::select("title","image","id","keywords","user_id","status")->limit(3)->inRandomOrder()->get();
-        $lastBlogs=Post::select("title","image","content","created_at","id","user_id","status","keywords")->limit(10)->orderByDesc("id")->get();
+        $slider=Post::where("id",1)->orWhere("id",3)->orWhere("id",16)->select("title","image","id","keywords","user_id","status")->get();
+        $lastBlogs=Post::select("title","image","content","created_at","id","user_id","status","keywords")->limit(20)->orderByDesc("id")->get();
+        $categoryList=Category::where("parent_id",0)->get();
         $data=[
             "setting"=>$setting,
             "slider"=>$slider,
             "lastBlogs"=>$lastBlogs,
+            "categoryList"=>$categoryList,
             "page"=>"home"
         ];
         return view("home.index", $data);
@@ -48,8 +62,8 @@ class HomeController extends Controller
         $data= Post::find($id);
         $user=User::find($user_id);
         $reviews=Review::where("post_id",$id)->get();
-
-        return view("home.blog_details", ["data"=>$data,"user"=>$user,"reviews"=>$reviews]);
+        $categoryList=Category::where("parent_id",0)->get();
+        return view("home.blog_details", ["data"=>$data,"user"=>$user,"reviews"=>$reviews,"categoryList"=>$categoryList]);
 
     }
 
