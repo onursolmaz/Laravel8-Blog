@@ -1,3 +1,10 @@
+@php
+$data=\App\Http\Controllers\admin\HomeController::getCount();
+$count_comment=$data["count_comment"];
+$count_blog=$data["count_blog"];
+$count_message=$data["count_message"];
+@endphp
+
 <header class="header dark-bg">
     <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
@@ -25,63 +32,18 @@
             <li id="mail_notificatoin_bar" class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <i class="icon-envelope-l"></i>
-                    <span class="badge bg-important">5</span>
+                    <span class="badge bg-important">{{$count_message>0 ? $count_message :""}}</span>
+{{--                    {{  $var === "hello" ? "Hi" : ($var ==="howdie ? "how" : "Goodbye") }}--}}
                 </a>
                 <ul class="dropdown-menu extended inbox">
                     <div class="notify-arrow notify-arrow-blue"></div>
                     <li>
-                        <p class="blue">You have 5 new messages</p>
+                        <p class="blue">You have <strong>{{$count_message}}</strong> new messages</p>
                     </li>
                     <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="{{asset("assets")}}/admin/./img/avatar-mini.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Greg  Martin</span>
-                                    <span class="time">1 min</span>
-                                    </span>
-                            <span class="message">
-                                        I really like this admin panel.
-                                    </span>
+                        <a href="{{route("admin_newmessage_show")}}">
+                            <i class="far fa-envelope ml-2" style="font-size: 19px"></i>  There are <strong class="font-weight-bold">{{$count_message}}</strong> messages waiting for reply
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="{{asset("assets")}}/admin/./img/avatar-mini2.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Bob   Mckenzie</span>
-                                    <span class="time">5 mins</span>
-                                    </span>
-                            <span class="message">
-                                     Hi, What is next project plan?
-                                    </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="{{asset("assets")}}/admin/./img/avatar-mini3.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Phillip   Park</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                            <span class="message">
-                                        I am like to buy this Admin Template.
-                                    </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="{{asset("assets")}}/admin/./img/avatar-mini4.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Ray   Munoz</span>
-                                    <span class="time">1 day</span>
-                                    </span>
-                            <span class="message">
-                                        Icon fonts are great.
-                                    </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">See all messages</a>
                     </li>
                 </ul>
             </li>
@@ -91,43 +53,22 @@
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                     <i class="icon-bell-l"></i>
-                    <span class="badge bg-important">7</span>
+                    <span class="badge bg-important">{{$count_comment + $count_blog}}</span>
                 </a>
                 <ul class="dropdown-menu extended notification">
                     <div class="notify-arrow notify-arrow-blue"></div>
                     <li>
-                        <p class="blue">You have 4 new notifications</p>
+                        <p class="blue">You have <strong>{{$count_comment + $count_blog}}</strong> new notifications</p>
                     </li>
                     <li>
-                        <a href="#">
-                            <span class="label label-primary"><i class="icon_profile"></i></span>
-                            Friend Request
-                            <span class="small italic pull-right">5 mins</span>
+                        <a href="{{route("admin_newblog_show")}}">
+                            <i class="fas fa-blog ml-2" style="font-size: 19px"></i>  There are {{$count_blog}} new blog
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <span class="label label-warning"><i class="icon_pin"></i></span>
-                            John location.
-                            <span class="small italic pull-right">50 mins</span>
+                        <a href="{{route("admin_newcomment_show")}}">
+                            <i class="far fa-comments ml-2" style="font-size: 19px"></i> There are {{$count_comment}} new comment
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="label label-danger"><i class="icon_book_alt"></i></span>
-                            Project 3 Completed.
-                            <span class="small italic pull-right">1 hr</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="label label-success"><i class="icon_like"></i></span>
-                            Mick appreciated your work.
-                            <span class="small italic pull-right"> Today</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">See all notifications</a>
                     </li>
                 </ul>
             </li>
@@ -139,28 +80,20 @@
                                 <img alt="" src="{{Auth::user()->profile_photo_url}}" style="width: 35px;height: 35px;border-radius: 50%;">
                             </span>
                     @auth
-                    <span class="username">{{Auth::user()->name}}</span>
+                        <span class="username">{{Auth::user()->name}}</span>
                     @endauth
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
-                    <li class="eborder-top">
-                        <a href="#"><i class="icon_profile"></i> My Profile</a>
-                    </li>
                     <li>
-                        <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                        <a href="{{route("home")}}"><i class="icon_clock_alt"></i> User Panel</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                    </li>
+
                     @auth
-                    <li>
-                        <a href="{{route("admin_logout")}}"><i class="icon_key_alt"></i> Log Out</a>
-                    </li>
+                        <li>
+                            <a href="{{route("admin_logout")}}"><i class="icon_key_alt"></i> Log Out</a>
+                        </li>
                     @endauth
                 </ul>
             </li>

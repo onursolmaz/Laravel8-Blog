@@ -6,7 +6,7 @@
         <div class="h2 text-center" style="margin-top: 16px"><img src="{{Auth::user()->profile_photo_url}}" style="width: 110px;height: 110px;border-radius: 50%;"></div>
 
         <div class="row" style="margin-top: 100px">
-            <h3 class="text-center font-weight-bold"><strong><i class="fas fa-hourglass-start"></i> Waiting for approval</strong></h3>
+            <h3 class="text-center font-weight-bold"><strong>Waiting for approval <i class="far fa-hourglass"></i></strong></h3>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="margin-left: 150px">
                 <div class="info-box blue-bg">
                     <i class="fas fa-blog"></i>

@@ -10,6 +10,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $appends = [
+        "getCount",
+    ];
+
+    public static function getCount()
+    {
+        $count_comment= Review::where("status","new")->get()->count();
+        $count_blog= Post::where("status","waiting")->get()->count();
+        $count_message= Message::where("status","New")->get()->count();
+        return [
+            "count_comment"=>$count_comment,
+            "count_blog"=>$count_blog,
+            "count_message"=>$count_message
+        ];
+    }
+
+
     public function index(){
        $count_comment= Review::where("status","new")->get()->count();
        $count_blog= Post::where("status","waiting")->get()->count();

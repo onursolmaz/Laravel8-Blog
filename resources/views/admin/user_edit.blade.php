@@ -1,12 +1,12 @@
 @extends("layouts.admin")
-@section("title","Post edit ")
+@section("title","User edit ")
 
 @section("content")
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-files-o"></i>Add Post</h3>
+                    <h3 class="page-header"><i class="fa fa-files-o"></i>User Edit</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="{{route("admin_home")}}">Home</a></li>
                         <li><i class="icon_document_alt"></i><a href="{{route("admin_users")}}">User</a></li>
@@ -47,16 +47,6 @@
                                             @if($data->profile_photo_path)
                                                 <img src="{{Storage::url($data->profile_photo_path)}}" height="45">
                                             @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label class="control-label col-lg-2">Roles</label>
-                                        <div class="col-lg-10">
-                                            <select class="form-control col-lg-2" name="id">
-                                                @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}">{{$rs->name}}</option>
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
 

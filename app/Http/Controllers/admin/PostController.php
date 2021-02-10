@@ -49,9 +49,12 @@ class PostController extends Controller
     }
 
 
-    public function show(Post $post)
+    public function newblogs(Post $post)
     {
-        //
+        $posts = Post::where("status","waiting")->get();
+//        $posts=DB::table("posts")->get();
+        return view("admin.post", ["posts" => $posts]);
+
     }
 
 

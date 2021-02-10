@@ -2,6 +2,7 @@
 @section("title","About us -". $setting->title)
 @section("css")
     <style>
+
         .contact-form {
             background: #fff;
             margin-top: 10%;
@@ -80,15 +81,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name *"
-                                       value=""/>
+                                       autocomplete="off"
+                                />
                             </div>
                             <div class="form-group">
                                 <input type="text" name="email" class="form-control" placeholder="Your Email *"
+                                       autocomplete="off"
                                        value=""/>
                             </div>
                             <div class="form-group">
-                                <input type="number" name="phone" class="form-control"
-                                       placeholder="Your Phone Number *" value=""/>
+                                <input type="number" name="phone" class="form-control" autocomplete="off"
+                                       placeholder="Your Phone Number *"/>
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="btnSubmit" class="btnContact" value="Send Message"/>
@@ -97,6 +100,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <textarea name="message" class="form-control" placeholder="Your Message *"
+                                          autocomplete="off"
                                           style="width: 100%; height: 150px;"></textarea>
                             </div>
                         </div>

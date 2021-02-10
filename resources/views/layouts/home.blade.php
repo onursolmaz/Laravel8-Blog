@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <title>@yield("title")</title>
     <meta name="description" content="@yield("description")">
     <meta name="keywords" content="@yield("keywords")">
@@ -20,7 +19,7 @@
     @yield("javascript")
     @yield("css")
 </head>
-<body>
+<body style="position:relative;min-height:100%;">
 
 @include("home.navbar")
 @section("content")

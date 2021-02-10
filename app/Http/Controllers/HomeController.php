@@ -25,9 +25,6 @@ class HomeController extends Controller
         return Post::where("category_id",$id)->count();
     }
 
-
-
-
     public static function categoryList()
     {
         return Category::where("parent_id", "=", 0)->with("children")->get();
@@ -38,14 +35,14 @@ class HomeController extends Controller
         return Setting::first();
     }
     public static function countReview($id){
-        return Review::where("post_id",$id)->get()->count();
+        return Review::where("post_id",$id)->Where("status","True")->get()->count();
     }
 
 
     public function index()
     {
         $setting = Setting::first();
-        $slider=Post::where("id",1)->orWhere("id",3)->orWhere("id",16)->select("title","image","id","keywords","user_id","status")->get();
+        $slider=Post::where("id",16)->orWhere("id",3)->orWhere("id",28)->select("title","image","id","keywords","user_id","status")->orderByDesc("id")->get();
         $lastBlogs=Post::select("title","image","content","created_at","id","user_id","status","keywords")->limit(20)->orderByDesc("id")->get();
         $categoryList=Category::where("parent_id",0)->get();
         $data=[
@@ -61,7 +58,7 @@ class HomeController extends Controller
     {
         $data= Post::find($id);
         $user=User::find($user_id);
-        $reviews=Review::where("post_id",$id)->get();
+        $reviews=Review::where("post_id",$id)->where("status","True")->get();
         $categoryList=Category::where("parent_id",0)->get();
         return view("home.blog_details", ["data"=>$data,"user"=>$user,"reviews"=>$reviews,"categoryList"=>$categoryList]);
 

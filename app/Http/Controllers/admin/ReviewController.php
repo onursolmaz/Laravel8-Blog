@@ -24,9 +24,10 @@ class ReviewController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function newComment(Request $request)
     {
-        //
+        $data=Review::where("status","new")->get();
+        return view("admin.comments",["datalist"=>$data]);
     }
 
     public function show(Review $review,$id)

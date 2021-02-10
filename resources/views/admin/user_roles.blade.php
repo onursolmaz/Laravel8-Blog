@@ -5,7 +5,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
         <table class="table table-bordered table-striped">
-            <h3 class="text-center">testr  </h3>
+            <h3 class="text-center">User Roles</h3>
             @include("home.alertMessages")
             <tbody>
             <tr>

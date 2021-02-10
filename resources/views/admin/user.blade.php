@@ -1,12 +1,11 @@
 @extends("layouts.admin")
-@section("title","Post list")
+@section("title","User list")
 
 @section("content")
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header">Posts</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="{{route("admin_home")}}">Home</a></li>
                         <li><i class="fa fa-bars"></i>Users</li>
@@ -18,7 +17,7 @@
                 <div class="col-lg-12">
                     <section class="card">
                         <div class="card-header">
-                            <h1 class="display-5 text-center mb-2">Users</h1>
+                            <h1 class="display-5 text-center mb-2">USERS</h1>
                         </div>
                         <table class="table table-striped table-advance table-hover container">
                             @include("home.alertMessages")
@@ -35,14 +34,11 @@
                                     <td>{{$data->id}}</td>
                                     <td>
                                         @if($data->profile_photo_path)
-                                            <img src="{{Storage::url($data->profile_photo_path)}}" height="45" class="img-rounded">
+                                            <img src="{{Storage::url($data->profile_photo_path)}}" height="45" width="45" class="img-rounded">
                                         @endif
                                     </td>
                                     <td>{{$data->name}}</td>
                                     <td>
-{{--                                        @foreach($data->roles as $role)--}}
-{{--                                            {{$role->name}}--}}
-{{--                                        @endforeach--}}
 
                                         @foreach($data->roles as $role)
                                         {{$role->name}},

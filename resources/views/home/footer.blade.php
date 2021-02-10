@@ -1,7 +1,7 @@
 @php
 $setting=\App\Http\Controllers\HomeController::getSettings();
 @endphp
-<footer class="py-5 bg-dark text-white ">
+<footer class="py-5 bg-dark text-white footer" style="margin-top:200px;">
 <div class="row" style="margin: 0; padding: 0;">
         <div class="col-3" style="margin-left: 85px">
             <span style="margin-left: 80px">Contact</span>

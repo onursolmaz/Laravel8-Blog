@@ -34,7 +34,6 @@
                     <img class="img-fluid rounded" src="{{Storage::url($data->image)}}" width="900px" height="300px">
                     <hr>
 
-                    <!-- Post Content -->
                     <p class="lead">{!! $data->content !!}</p>
                     <hr>
 
@@ -59,6 +58,7 @@
                         </div>
                         <hr>
                     @endforeach
+                    <div class="mb-5"></div>
                 </div>
                 <div class="col-md-4">
                     @include("home.sidebarR",["categoryList"=>$categoryList])

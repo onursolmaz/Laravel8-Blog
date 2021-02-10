@@ -27,9 +27,11 @@ class MessageController extends Controller
     }
 
 
-    public function show(Message $message)
+    public function newMessageshow(Message $message)
     {
-        //
+        $datalist=Message::where("status","New")->get();
+        return view("admin.messages",["datalist"=>$datalist]);
+
     }
 
 

@@ -57,6 +57,7 @@ Route::middleware("auth")->prefix("admin")->group(function () {
             Route::post("/update/{id}", [PostController::class, "update"])->name("admin_post_update");
             Route::get("/delete/{id}", [PostController::class, "destroy"])->name("admin_post_delete");
             Route::get("show", [PostController::class, "show"])->name("admin_post_show");
+            Route::get("newblogs", [PostController::class, "newblogs"])->name("admin_newblog_show");
         });
 
         #Messages
@@ -66,6 +67,7 @@ Route::middleware("auth")->prefix("admin")->group(function () {
             Route::post("/update/{id}", [MessageController::class, "update"])->name("admin_message_update");
             Route::get("/delete/{id}", [MessageController::class, "destroy"])->name("admin_message_delete");
             Route::get("show", [MessageController::class, "show"])->name("admin_message_show");
+            Route::get("newMessages", [MessageController::class, "newMessageshow"])->name("admin_newmessage_show");
         });
 
 
@@ -83,6 +85,7 @@ Route::middleware("auth")->prefix("admin")->group(function () {
             Route::post("/update/{id}", [ReviewController::class, "update"])->name("admin_comment_update");
             Route::get("/delete/{id}", [ReviewController::class, "destroy"])->name("admin_comment_delete");
             Route::get("show/{id}", [ReviewController::class, "show"])->name("admin_comment_show");
+            Route::get("newcomments", [ReviewController::class, "newComment"])->name("admin_newcomment_show");
         });
 
         #User role management

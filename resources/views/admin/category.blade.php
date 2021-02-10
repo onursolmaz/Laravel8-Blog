@@ -6,7 +6,6 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header">Kategoriler</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="{{route("admin_home")}}">Home</a></li>
                         <li><i class="fa fa-bars"></i>Categories</li>
@@ -20,7 +19,7 @@
                             class="fa-lg icon_plus"></i> Add category</a>
                     <section class="card">
                         <div class="card-header">
-                            <h1 class="display-5 text-center mb-2">Categories</h1>
+                            <h1 class="display-5 text-center mb-2">CATEGORIES</h1>
                         </div>
                         <table class="table table-striped table-advance table-hover">
                             <tbody>
